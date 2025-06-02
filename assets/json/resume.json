@@ -4,23 +4,8 @@
     "label": "Graduate Student Researcher",
     "image": "",
     "email": "wzwang1210@cs.ucla.edu",
-    "phone": "(310) 339-7012",
-    "url": "https://alshedivat.github.io/al-folio/",
-    "summary": "Graduate student researcher at UCLA, specializing in artificial intelligence.",
-    "location": {
-      "address": "2712 Broadway St",
-      "postalCode": "CA 94115",
-      "city": "San Francisco",
-      "countryCode": "US",
-      "region": "California"
-    },
-    "profiles": [
-      {
-        "network": "Twitter",
-        "username": "AlbertEinstein",
-        "url": "https://twitter.com/AlbertEinstein"
-      }
-    ]
+    "url": "https://weizhenwang-1210.github.io/",
+    "summary": "Graduate student researcher at UCLA, specializing in artificial intelligence."
   },
   "work": [
   ],
