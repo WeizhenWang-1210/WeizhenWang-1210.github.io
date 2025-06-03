@@ -28,10 +28,10 @@ latest_posts:
 ---
 I'm a second-year M.S.C.S student at UCLA. Before that, I obtained B.S. in computer science with a minor in mathematics at UCLA, graduating with Cum Laude standing. 
 
-I am applying for Ph.D. program for Fall 2025 season. My research interests include embodied AI using foundation models and generative modeling. I have experience in end-to-end training of Vision-Language-Models as well as diffusion models, and I have also managed large-scale data. My most proficient programming language is Python, but I have made some frontend projects using JavaScript for research purpose. 
+I am applying for the Ph.D. program for the Fall 2025 season. My research interests include embodied AI using foundation models and generative modeling. I have experience in end-to-end training of Vision-Language-Models as well as diffusion models, and I have also managed large-scale data. My most proficient programming language is Python, but I have made some frontend projects using JavaScript for research purposes. 
 
 
-For leisure time, I am frentic about skiing, spending almost all my winter breaks in ski resorts for the past four years. Check out my seasonal ski maps (coming) if you are interested. I'm also into LEGO building and Gunpla building.
+For leisure time, I am passionate about skiing, spending almost all my winter breaks in ski resorts for the past four years. Check out my seasonal ski maps (coming) if you are interested. I'm also into LEGO building and Gunpla building.
 
 
 
