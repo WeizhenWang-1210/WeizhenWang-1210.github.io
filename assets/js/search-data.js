@@ -418,7 +418,10 @@ ninja.data = [{
           description: "",
           section: "Books",handler: () => {
               window.location.href = "/books/thinking_fast_and_slow/";
-            },},{id: "news-my-first-paper-got-accepted-into-cvpr-2025-special-thanks-to-zhenghao-peng-and-prof-bolei-zhou-for-close-mentoring",
+            },},{id: "news-the-stork-paper-got-accepted-into-iclr2026-thanks-to-my-collaborator-zheng-tan-and-prof-ernest-k-ryu-for-his-dedicated-advising",
+          title: 'The STORK paper got accepted into ICLR2026! Thanks to my collaborator, Zheng Tan,...',
+          description: "",
+          section: "News",},{id: "news-my-first-paper-got-accepted-into-cvpr-2025-special-thanks-to-zhenghao-peng-and-prof-bolei-zhou-for-close-mentoring",
           title: 'My first paper got accepted into CVPR 2025! Special thanks to Zhenghao Peng...',
           description: "",
           section: "News",},{id: "news-one-of-my-latest-works-stork-is-now-available-on-arxiv-special-thanks-to-my-collaborator-zheng-tan-who-has-such-brilliant-mathematical-intuition",
