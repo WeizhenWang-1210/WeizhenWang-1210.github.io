@@ -13,4 +13,4 @@ announcements:
 ---
 I work on end-to-end RL post-training at scale.
 
-Previously a Staff Research Associate at UCLA’s VAIL Lab with [Prof. Bolei Zhou](https://boleizhou.github.io/). M.S. ’25 and B.S. ’23 in Computer Science.
+Previously, I worked on embodied AI and visual generation at UCLA’s [VAIL Lab](https://vail.cs.ucla.edu/) with Prof. [Bolei Zhou](https://boleizhou.github.io/). I’m grateful for his mentorship and for the opportunity to collaborate with Prof. [Ernest K. Ryu](https://ernestryu.com/) and Prof. [Andrea L. Bertozzi](https://www.math.ucla.edu/~bertozzi/) in UCLA’s Department of Mathematics.
