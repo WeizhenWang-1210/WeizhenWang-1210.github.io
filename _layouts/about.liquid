@@ -18,10 +18,11 @@ layout: default
   </section>
 
   <section class="career-section" aria-labelledby="career-title">
-    <div class="section-heading"><h2 id="career-title">Experience & education</h2></div>
+    <div class="section-heading"><h2 id="career-title">Experience & Education</h2></div>
     <div class="career-list">
       {% for item in site.data.career %}
         <div class="career-row{% if item.current %} is-current{% endif %}">
+          <div class="career-logo"><img src="{{ item.logo | relative_url }}" alt="" loading="lazy"></div>
           <div class="career-org">{{ item.organization }}{% if item.current %}<span class="current-label">Now</span>{% endif %}</div>
           <div class="career-detail"><h3>{{ item.role }}</h3>{% if item.description %}<p>{{ item.description }}</p>{% endif %}</div>
           <div class="career-period">{{ item.period }}</div>
@@ -63,5 +64,4 @@ layout: default
       <a href="https://scholar.google.com/citations?user={{ site.data.socials.scholar_userid }}" target="_blank" rel="noopener noreferrer">Google Scholar <span aria-hidden="true">↗</span></a>
     </div>
   </section>
-  {% include visitor_map.liquid %}
 </div>
