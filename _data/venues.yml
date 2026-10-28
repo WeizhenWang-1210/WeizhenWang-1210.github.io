@@ -7,3 +7,17 @@
 
 "Vision":
   color: "#009f36"
+
+"CVPR 2025":
+  name: CVPR
+  url: https://cvpr.thecvf.com/Conferences/2025
+  logo: /assets/img/venues/cvpr-2025.png
+  width: 1976
+  height: 645
+
+"ICLR 2026":
+  name: ICLR
+  url: https://iclr.cc/Conferences/2026
+  logo: /assets/img/venues/iclr-2026.svg
+  width: 282
+  height: 84

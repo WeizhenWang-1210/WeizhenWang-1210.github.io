@@ -21,7 +21,7 @@ module Jekyll
 
       def directory_files_content
         target_path = File.join(directory, '**', '*')
-        Dir[target_path].map{|f| File.read(f) unless File.directory?(f) }.join
+        Dir[target_path].sort.map{|f| File.read(f) unless File.directory?(f) }.join
       end
 
       def file_content
@@ -43,7 +43,9 @@ module Jekyll
     end
 
     def bust_css_cache(file_name)
-      CacheDigester.new(file_name: file_name, directory: 'assets/_sass').digest!
+      sources = ['assets/css/main.scss'] + Dir['_sass/**/*'].select { |path| File.file?(path) }.sort
+      digest = Digest::MD5.hexdigest(sources.map { |path| File.read(path) }.join)
+      [file_name, '?', digest].join
     end
   end
 end

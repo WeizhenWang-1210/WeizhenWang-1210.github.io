@@ -1,80 +1,67 @@
 ---
 layout: default
 ---
-<div class="post">
-  <header class="post-header">
-    <h1 class="post-title">
-      {% if site.title == 'blank' %}
-        <span class="font-weight-bold">{{ site.first_name }}</span> {{ site.middle_name }}
-        {{ site.last_name }}
-      {% else %}
-        {{ site.title }}
-      {% endif %}
-    </h1>
-    <p class="desc">{{ page.subtitle }}</p>
-  </header>
-
-  <article>
-    {% if page.profile %}
-      <div class="profile float-{% if page.profile.align == 'left' %}left{% else %}right{% endif %}">
-        {% if page.profile.image %}
-          {% assign profile_image_path = page.profile.image | prepend: 'assets/img/' %}
-          {% if page.profile.image_circular %}
-            {% assign profile_image_class = 'img-fluid z-depth-1 rounded-circle' %}
-          {% else %}
-            {% assign profile_image_class = 'img-fluid z-depth-1
-      rounded' %}
-          {% endif %}
-          {% capture sizes %}(min-width: {{ site.max_width }}) {{ site.max_width | minus: 30 | times: 0.3}}px, (min-width: 576px)
-      30vw, 95vw"{% endcapture %}
-          {%
-            include figure.liquid loading="eager" path=profile_image_path class=profile_image_class sizes=sizes alt=page.profile.image
-            cache_bust=true
-          %}
-        {% endif %}
-        {% if page.profile.more_info %}
-          <div class="more-info">{{ page.profile.more_info }}</div>
-        {% endif %}
+<div class="personal-home">
+  <section class="home-hero" aria-labelledby="home-title">
+    <div class="hero-copy">
+      <h1 id="home-title">Weizhen Wang</h1>
+      <p class="hero-role">Applied Scientist · Accio Work, Alibaba</p>
+      <div class="hero-intro">{{ content }}</div>
+      <div class="hero-links">
+        <a class="button-primary" href="#research">View research <span aria-hidden="true">↗</span></a>
+        <a class="text-link" href="https://www.linkedin.com/in/{{ site.data.socials.linkedin_username }}/" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
       </div>
-    {% endif %}
+    </div>
+    <figure class="hero-portrait">
+      <img src="{{ page.profile.image | prepend: '/assets/img/' | replace: '//', '/' | relative_url | bust_file_cache }}" alt="{{ page.profile.alt | escape }}" width="720" height="800" fetchpriority="high">
+    </figure>
+  </section>
 
-    <div class="clearfix">{{ content }}</div>
+  <section class="career-section" aria-labelledby="career-title">
+    <div class="section-heading"><h2 id="career-title">Experience & education</h2></div>
+    <div class="career-list">
+      {% for item in site.data.career %}
+        <div class="career-row{% if item.current %} is-current{% endif %}">
+          <div class="career-org">{{ item.organization }}{% if item.current %}<span class="current-label">Now</span>{% endif %}</div>
+          <div class="career-detail"><h3>{{ item.role }}</h3>{% if item.description %}<p>{{ item.description }}</p>{% endif %}</div>
+          <div class="career-period">{{ item.period }}</div>
+        </div>
+      {% endfor %}
+    </div>
+  </section>
 
-    <!-- News -->
-    {% if page.announcements and page.announcements.enabled %}
-      <h2>
-        <a href="{{ '/news/' | relative_url }}" style="color: inherit">news</a>
-      </h2>
-      {% include news.liquid limit=true %}
-    {% endif %}
-
-    <!-- Latest posts -->
-    {% if page.latest_posts and page.latest_posts.enabled %}
-      <h2>
-        <a href="{{ '/blog/' | relative_url }}" style="color: inherit">latest posts</a>
-      </h2>
-      {% include latest_posts.liquid %}
-    {% endif %}
-
-    <!-- Selected papers -->
-    {% if page.selected_papers %}
-      <h2>
-        <a href="{{ '/publications/' | relative_url }}" style="color: inherit">selected publications</a>
-      </h2>
+  {% if page.selected_papers %}
+    <section class="research-section" id="research" aria-labelledby="research-title">
+      <div class="section-heading section-heading-link">
+        <div><h2 id="research-title">Selected research</h2></div>
+        <a class="text-link" href="{{ '/publications/' | relative_url }}">All publications <span aria-hidden="true">↗</span></a>
+      </div>
       {% include selected_papers.liquid %}
-    {% endif %}
+    </section>
+  {% endif %}
 
-    <!-- Social -->
-    {% if page.social %}
-      <div class="social">
-        <div class="contact-icons">{% include social.liquid %}</div>
-
-        <div class="contact-note">{{ site.contact_note }}</div>
+  {% if page.announcements.enabled %}
+    <section class="updates-section" aria-labelledby="updates-title">
+      <div class="section-heading"><h2 id="updates-title">News</h2></div>
+      <div class="updates-list">
+        <div class="update-row"><span class="update-date">Jun 2026</span><p>I joined Alibaba as an Applied Scientist on the Accio Work team.</p></div>
+        <div class="update-row"><span class="update-date">May 2026</span><p>I wrapped up my time as a Staff Research Associate with Prof. Bolei Zhou at UCLA.</p></div>
+        {% assign recent_news = site.news | sort: 'date' | reverse %}
+        {% for item in recent_news limit: page.announcements.limit %}
+          <div class="update-row"><time class="update-date" datetime="{{ item.date | date: '%Y-%m-%d' }}">{{ item.date | date: '%b %Y' }}</time><div class="update-content">{{ item.content }}</div></div>
+        {% endfor %}
       </div>
-    {% endif %}
+      <a class="text-link archive-link" href="{{ '/news/' | relative_url }}">Earlier updates <span aria-hidden="true">↗</span></a>
+    </section>
+  {% endif %}
 
-    {% if site.newsletter and site.newsletter.enabled and site.footer_fixed %}
-      {% include newsletter.liquid center=true %}
-    {% endif %}
-  </article>
+  <section class="contact-section" aria-labelledby="contact-title">
+    <h2 id="contact-title">Connect</h2>
+    <div class="contact-links">
+      <a href="https://www.linkedin.com/in/{{ site.data.socials.linkedin_username }}/" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
+      <a href="https://github.com/{{ site.data.socials.github_username | strip }}" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+      <a href="https://scholar.google.com/citations?user={{ site.data.socials.scholar_userid }}" target="_blank" rel="noopener noreferrer">Google Scholar <span aria-hidden="true">↗</span></a>
+    </div>
+  </section>
+  {% include visitor_map.liquid %}
 </div>

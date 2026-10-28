@@ -1,0 +1,10 @@
+---
+---
+<div class="cv-entry">
+  <div class="cv-entry-date">{{ entry.year }}</div>
+  <div class="cv-entry-body">
+    {% assign paper_url = entry.html | default: entry.url | default: entry.website | default: entry.pdf %}
+    <h3><a href="{{ paper_url }}">{{ entry.title }}</a></h3>
+    <p class="cv-entry-meta">{{ entry.abbr | remove: entry.year | strip }}</p>
+  </div>
+</div>
